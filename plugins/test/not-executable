@@ -1,0 +1,5 @@
+# test-not-executable - test plugin which does not have its executable
+# flag set
+#
+# This plugin is included only to be used in test cases
+# PLEASE DO NOT USE ON PRODUCTION SYSTEMS

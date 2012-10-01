@@ -1,0 +1,12 @@
+#!/bin/sh
+
+command='bin/nolo-gmetric -n plugins/test/single'
+expected=$(cat <<EOF
+gmetric --name="guage" --value="999"
+EOF)
+actual=`$command`
+
+if ! [ "${actual}" = "${expected}" ]; then
+  echo "${command} failed! Got \"${actual}\", but expected \"${expected}\""
+  exit -1
+fi

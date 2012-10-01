@@ -1,0 +1,8 @@
+#!/bin/sh
+# test-multiple - test plugin which includes multiple metrics
+#
+# This plugin is included only to be used in test cases
+# PLEASE DO NOT USE ON PRODUCTION SYSTEMS
+
+echo guage 999
+echo counter 5

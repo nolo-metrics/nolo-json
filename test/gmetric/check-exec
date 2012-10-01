@@ -1,0 +1,10 @@
+#!/bin/sh
+
+command='bin/nolo-gmetric -n plugins/test/not-executable'
+expected='plugins/test/not-executable is not executable'
+actual=`$command`
+
+if ! [ "${actual}" = "${expected}" ]; then
+  echo "${command} failed! Got \"${actual}\", but expected \"${expected}\""
+  exit -1
+fi
