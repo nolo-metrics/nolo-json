@@ -34,7 +34,7 @@ Installation
 
 Extract the repo into the directory of your choice:
 
-  git clone https://github.com/josephholsten/nolo /opt/nolo
+    git clone https://github.com/josephholsten/nolo /opt/nolo
 
 Adapter scripts will be found in `bin/`, and plugins will be found
 in `plugins/`.
