@@ -1,0 +1,16 @@
+#!/bin/sh
+cat <<EOF
+----------- General information -----------
+max      = 7
+count    = 3
+active   = 0
+inactive = 3
+Waiting on global queue: 0
+
+----------- Application groups -----------
+/opt/foo/current:
+  App root: /opt/foo/current
+  * PID: 18356   Sessions: 0    Processed: 307     Uptime: 1h 18m 14s
+  * PID: 21989   Sessions: 0    Processed: 4       Uptime: 3m 15s
+  * PID: 20665   Sessions: 0    Processed: 238     Uptime: 33m 16s
+EOF

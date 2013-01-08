@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+
+`passenger-status`.each_line do |line|
+  case line
+  when /^max\s+= (\d+)/
+    puts "max_pool_size #{$1} units=processes slope=both description=\"Max processes in Passenger pool\""
+  when /^count\s+= (\d+)/
+    puts "open_processes #{$1} units=processes slope=both description=\"Number of currently open passenger processes\""
+  when /^active\s+= (\d+)/
+    puts "active_processes #{$1} units=processes slope=both description=\"Number of active passenger processes\""
+  when /^inactive\s+= (\d+)/
+    puts "inactive_processes #{$1} units=processes slope=both description=\"Number of inactive passenger processes\""
+  when /^Waiting on global queue: (\d+)/
+    puts "global_queue_depth #{$1} units=requests slope=both description=\"Requests waiting on a free process\""
+  end
+end
+
+seen_passenger = false
+`passenger-memory-stats`.each_line do |line|
+  # Only record the memory for the passenger section
+  seen_passenger = true if line =~ /Passenger/
+  if line =~ /^### Total private dirty RSS:\s+(\d+.\d+)/ && seen_passenger
+    puts "memory_usage #{$1} units=MB slope=both description=\"Passenger Memory usage\""
+  end
+end
