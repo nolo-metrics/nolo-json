@@ -1,0 +1,15 @@
+#!/bin/sh
+
+PATH="test/fake/bin:$PATH"
+command='plugins/load'
+expected=$(cat <<EOF
+load_one 0.99
+load_five 0.99
+load_fifteen 0.94
+EOF)
+actual=`$command`
+
+if ! [ "${actual}" = "${expected}" ]; then
+  echo "${command} failed! Got \"${actual}\", but expected \"${expected}\""
+  exit -1
+fi
