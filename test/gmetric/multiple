@@ -3,7 +3,7 @@
 # pending
 #echo '- Pending'; exit
 
-command='bin/nolo-gmetric -n plugins/test/multiple'
+command='bin/nolo-gmetric -n test/fake/plugins/multiple'
 expected=$(cat <<EOF
 gmetric --name="guage" --value="999"
 gmetric --name="counter" --value="5"

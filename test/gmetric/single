@@ -1,6 +1,6 @@
 #!/bin/sh
 
-command='bin/nolo-gmetric -n plugins/test/single'
+command='bin/nolo-gmetric -n test/fake/plugins/single'
 expected=$(cat <<EOF
 gmetric --name="guage" --value="999"
 EOF)

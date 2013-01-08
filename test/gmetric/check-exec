@@ -1,7 +1,7 @@
 #!/bin/sh
 
-command='bin/nolo-gmetric -n plugins/test/not-executable'
-expected='plugins/test/not-executable is not executable'
+command='bin/nolo-gmetric -n test/fake/plugins/not-executable'
+expected='test/fake/plugins/not-executable is not executable'
 actual=`$command`
 
 if ! [ "${actual}" = "${expected}" ]; then
