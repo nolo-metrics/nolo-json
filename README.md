@@ -14,13 +14,6 @@ Of course many collector systems support extra metadata, so it should
 be easy to include this as well:
 
     % ./app_plugin
-    # host=darkstar
-    connections_open 216 time=1200928930 type=uint16
-    requests 153 release=2.24.2.4271 type=uint8
-
-This is a shorthand way of writing:
-
-    % ./app_plugin
     connections_open 216 time=1200928930 type=uint16 host=darkstar
     requests 153 release=2.24.2.4271 type=uint8 host=darkstar
 
