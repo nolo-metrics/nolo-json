@@ -1,28 +1,27 @@
 package main
 
 import (
-	"nolo"
+	// "github.com/nolo-metrics/nolo-json"
+	".."
+	"encoding/json"
+	"fmt"
+	"log"
 	"os"
+	"os/exec"
 )
 
-func collect(name, input string) (items []item) {
-	l := lex(name, input)
-	for {
-		item := l.nextItem()
-		items = append(items, item)
-		if item.typ == itemEOF || item.typ == itemError {
-			break
-		}
-	}
-	return
-}
-
 func main() {
-	input, _ := ioutil.ReadAll(os.Stdin)
+	name := "./app-plugin"
 
-	items := collect("bob", string(input))
-	for i := 0; i < len(items); i++ {
-		item := items[i]
-		fmt.Println(item.String())
+	out, err := exec.Command(name).Output()
+	if err != nil {
+		log.Fatal(err)
 	}
+	input := fmt.Sprintf("%s", out)
+
+	plugin := nolo.Parse(name, input)
+
+	plugin_map := plugin.ToMap()
+	output, _ := json.MarshalIndent(plugin_map, "", "  ")
+	os.Stdout.Write(output)
 }
