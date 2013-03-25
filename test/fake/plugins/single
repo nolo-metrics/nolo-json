@@ -1,7 +1,0 @@
-#!/bin/sh
-# test-single - test plugin which provides only a single metric
-#
-# This plugin is included only to be used in test cases
-# PLEASE DO NOT USE ON PRODUCTION SYSTEMS
-
-echo guage 999

@@ -1,5 +1,0 @@
-#!/bin/sh
-# load - print kernel queue load metrics in nolo plugin format
-
-uptime |
-awk '{print "load_one " $10; print "load_five " $11; print "load_fifteen " $12;}'

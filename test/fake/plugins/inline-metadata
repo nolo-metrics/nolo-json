@@ -1,9 +1,0 @@
-#!/bin/sh
-# test-inline-metadata - test plugin which provides multiple metrics
-# with different metadata
-#
-# This plugin is included only to be used in test cases
-# PLEASE DO NOT USE ON PRODUCTION SYSTEMS
-
-echo gauge 999 env=production
-echo counter 5 env=test

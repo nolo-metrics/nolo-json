@@ -1,7 +1,0 @@
-#!/bin/sh
-# test-failing-return - test plugin which returns a non-zero response
-#
-# This plugin is included only to be used in test cases
-# PLEASE DO NOT USE ON PRODUCTION SYSTEMS
-
-exit -1
