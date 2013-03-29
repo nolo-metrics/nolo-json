@@ -1,8 +1,8 @@
 package main
 
 import (
-	// "github.com/nolo-metrics/nolo-json"
-	".."
+	// "github.com/nolo-metrics/nolo-json/nolo"
+	"./nolo"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -11,7 +11,13 @@ import (
 )
 
 func main() {
-	name := "./app-plugin"
+	args := os.Args;
+	
+	if 1 == len(args) {
+		log.Fatal("usage: nolo-json path-to-plugin")
+	}
+
+	name := args[1]
 
 	out, err := exec.Command(name).Output()
 	if err != nil {
