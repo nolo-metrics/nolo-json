@@ -8,6 +8,7 @@ import (
 	"log"
 	"os"
 	"os/exec"
+	"path/filepath"
 )
 
 func main() {
@@ -18,6 +19,7 @@ func main() {
 	}
 
 	name := args[1]
+	 
 
 	out, err := exec.Command(name).Output()
 	if err != nil {
@@ -25,7 +27,8 @@ func main() {
 	}
 	input := fmt.Sprintf("%s", out)
 
-	plugin := nolo.Parse(name, input)
+	basename := filepath.Base(name)
+	plugin := nolo.Parse(basename, input)
 
 	plugin_map := plugin.ToMap()
 	output, _ := json.MarshalIndent(plugin_map, "", "  ")
