@@ -14,7 +14,7 @@ func main() {
 	args := os.Args
 
 	if 1 == len(args) {
-		log.Fatal("usage: nolo-json path-to-plugin")
+		log.Fatal("usage: nolo-json <meter-path>")
 	}
 
 	name := args[1]
@@ -26,9 +26,9 @@ func main() {
 	input := fmt.Sprintf("%s", out)
 
 	basename := filepath.Base(name)
-	plugin := nolo.Parse(basename, input)
+	meter := nolo.Parse(basename, input)
 
-	plugin_map := plugin.ToMap()
-	output, _ := json.MarshalIndent(plugin_map, "", "  ")
+	meter_map := meter.ToMap()
+	output, _ := json.MarshalIndent(meter_map, "", "  ")
 	os.Stdout.Write(output)
 }
